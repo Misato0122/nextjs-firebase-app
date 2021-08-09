@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { useAuthentication } from '../hooks/authentication'
+import Link from 'next/link'
 
 export default function Home() {
+  const { user } = useAuthentication()
   return (
     <div className={styles.container}>
       <Head>
@@ -15,6 +18,8 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <p>{user?.uid || '未ログイン'}</p>
 
         <p className={styles.description}>
           Get started by editing{' '}
@@ -49,6 +54,9 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
+          <Link href="page2">
+            <a>Go to page2</a>
+          </Link>
         </div>
       </main>
 
