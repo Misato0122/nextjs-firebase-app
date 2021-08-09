@@ -56,7 +56,7 @@ export default function QuestionsShow() {
     setAnswer(gotAnswer)
   }
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setIsSending(true)
   
@@ -88,7 +88,7 @@ export default function QuestionsShow() {
     if (user === null) {
       return
     }
-    
+
     loadData()
   }, [query.id])
 
